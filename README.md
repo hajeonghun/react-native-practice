@@ -14,6 +14,7 @@
 - src/modules: 네이티브 모듈
 - src/store: 리덕스 스토어 세팅
 - src/slices: 리덕스 슬라이스
+    - slices 대신 features
 - @types: 타입 정의
 ```
 .  
