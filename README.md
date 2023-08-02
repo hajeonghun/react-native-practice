@@ -14,6 +14,7 @@
 - src/modules: 네이티브 모듈
 - src/store: 리덕스 스토어 세팅
 - src/slices: 리덕스 슬라이스
+    - slices 대신 features
 - @types: 타입 정의
 ```
 .  
@@ -83,6 +84,7 @@
 ## 참고사항
 - SafeView
     - 노치, 카메라 홀 등 죽은공간 처리
+    - react-navigation에서 `useSafeAreaInsets` 권장 ([공식문서](https://reactnavigation.org/docs/handling-safe-area/))
 - StatusBar
     - 베터리, 시간 표시 부분
     - react-natvie-status-bar-height 라이브러리로 높이 계산
