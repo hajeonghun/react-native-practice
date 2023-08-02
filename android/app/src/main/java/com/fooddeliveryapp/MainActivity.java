@@ -1,4 +1,4 @@
-package com.hoony.fooddeliveryapp;
+package com.fooddeliveryapp;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

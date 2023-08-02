@@ -73,14 +73,14 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.hoony.fooddeliveryapp"
+    namespace "com.fooddeliveryapp"
     defaultConfig {
-        applicationId "com.hoony.fooddeliveryapp"
+        applicationId "com.fooddeliveryapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        resValue "string", "build_config_package", "com.hoony.fooddeliveryapp"
+        resValue "string", "build_config_package", "com.fooddeliveryapp"
     }
     signingConfigs {
         debug {
