@@ -19,7 +19,7 @@ import axios, {AxiosError} from 'axios';
 import {Alert} from 'react-native';
 import {useAppDispatch} from './src/store';
 import orderSlice from './src/slices/order';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
+import SplashScreen from 'react-native-splash-screen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -71,6 +71,9 @@ function AppInner() {
       try {
         const token = await EncryptedStorage.getItem('refreshToken');
         if (!token) {
+          console.log('!token ###');
+          SplashScreen.hide();
+
           return;
         }
         const response = await axios.post(
@@ -94,6 +97,9 @@ function AppInner() {
         if ((error as AxiosError).response?.data.code === 'expired') {
           Alert.alert('알림', '다시 로그인 해주세요.');
         }
+      } finally {
+        console.log('finally ###');
+        SplashScreen.hide();
       }
     };
     getTokenAndRefresh();
