@@ -15,8 +15,6 @@ import {
   useRoute,
 } from '@react-navigation/native';
 import {LoggedInParamList} from '../../AppInner';
-import ImagePicker from 'react-native-image-crop-picker';
-import ImageResizer from 'react-native-image-resizer';
 import axios, {AxiosError} from 'axios';
 import Config from 'react-native-config';
 import {useSelector} from 'react-redux';
@@ -37,46 +35,46 @@ function Complete() {
   const accessToken = useSelector((state: RootState) => state.user.accessToken);
 
   const onResponse = useCallback(async response => {
-    console.log(response.width, response.height, response.exif);
-    setPreview({uri: `data:${response.mime};base64,${response.data}`});
-    const orientation = (response.exif as any)?.Orientation;
-    console.log('orientation', orientation);
-    return ImageResizer.createResizedImage(
-      response.path,
-      600,
-      600,
-      response.mime.includes('jpeg') ? 'JPEG' : 'PNG',
-      100,
-      0,
-    ).then(r => {
-      console.log(r.uri, r.name);
-
-      setImage({
-        uri: r.uri,
-        name: r.name,
-        type: response.mime,
-      });
-    });
+    // console.log(response.width, response.height, response.exif);
+    // setPreview({uri: `data:${response.mime};base64,${response.data}`});
+    // const orientation = (response.exif as any)?.Orientation;
+    // console.log('orientation', orientation);
+    // return ImageResizer.createResizedImage(
+    //   response.path,
+    //   600,
+    //   600,
+    //   response.mime.includes('jpeg') ? 'JPEG' : 'PNG',
+    //   100,
+    //   0,
+    // ).then(r => {
+    //   console.log(r.uri, r.name);
+    //
+    //   setImage({
+    //     uri: r.uri,
+    //     name: r.name,
+    //     type: response.mime,
+    //   });
+    // });
   }, []);
 
   const onTakePhoto = useCallback(() => {
-    return ImagePicker.openCamera({
-      includeBase64: true,
-      includeExif: true,
-      // saveToPhotos: true,
-    })
-      .then(onResponse)
-      .catch(console.log);
+    // return ImagePicker.openCamera({
+    //   includeBase64: true,
+    //   includeExif: true,
+    //   // saveToPhotos: true,
+    // })
+    //   .then(onResponse)
+    //   .catch(console.log);
   }, [onResponse]);
 
   const onChangeFile = useCallback(() => {
-    return ImagePicker.openPicker({
-      includeExif: true,
-      includeBase64: true,
-      mediaType: 'photo',
-    })
-      .then(onResponse)
-      .catch(console.log);
+    // return ImagePicker.openPicker({
+    //   includeExif: true,
+    //   includeBase64: true,
+    //   mediaType: 'photo',
+    // })
+    //   .then(onResponse)
+    //   .catch(console.log);
   }, [onResponse]);
 
   const orderId = route.params?.orderId;

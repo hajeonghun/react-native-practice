@@ -7,7 +7,6 @@ import {NavigationContainer} from '@react-navigation/native';
 import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {RootStackParamList} from './App';
 import {useSelector} from 'react-redux';
 import {RootState} from './src/store/reducer';
 import useSocket from './src/hooks/useSocket';
@@ -20,6 +19,7 @@ import {Alert} from 'react-native';
 import {useAppDispatch} from './src/store';
 import orderSlice from './src/slices/order';
 import SplashScreen from 'react-native-splash-screen';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator<RootStackParamList>();
