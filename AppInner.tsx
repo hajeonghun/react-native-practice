@@ -20,6 +20,7 @@ import {useAppDispatch} from './src/store';
 import orderSlice from './src/slices/order';
 import SplashScreen from 'react-native-splash-screen';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -145,17 +146,27 @@ function AppInner() {
             <Tab.Screen
               name="Orders"
               component={Orders}
-              options={{title: '오더 목록'}}
+              options={{
+                title: '오더 목록',
+                tabBarIcon: () => <FontAwesomeIcon name="list" size={20} />,
+              }}
             />
             <Tab.Screen
               name="Delivery"
               component={Delivery}
-              options={{headerShown: false}}
+              options={{
+                title: '주문',
+                headerShown: false,
+                tabBarIcon: () => <FontAwesomeIcon name="map" size={20} />,
+              }}
             />
             <Tab.Screen
               name="Settings"
               component={Settings}
-              options={{title: '내 정보'}}
+              options={{
+                title: '내 정보',
+                tabBarIcon: () => <FontAwesomeIcon name="gear" size={20} />,
+              }}
             />
           </Tab.Navigator>
         ) : (
